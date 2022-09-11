@@ -1,0 +1,11 @@
+UNDER MAINTENANCE//
+///////////////////
+To start server
+$npm run dev
+
+To start frontend
+$npm start
+
+
+Notes: currently only way to manipulate database is with insomnia app
+until frontend data manipulation is added with react.
