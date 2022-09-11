@@ -1,0 +1,18 @@
+BACKEND
+    /controllers
+    /models
+    /routes
+    /.env
+    package.json (and package-lock.json)
+    server.js
+    
+    Commands
+        $npm init -y (creates package.json files)
+        $npm install express
+        $npm install dotenv (access to env vars via "process.env.VAR_HERE"
+        //$node server.js (TEST command)
+        $npm install -g nodemon
+        //$nodemon server.js (invokes server)
+        $npm run dev (after changed package.json script "dev": "nodemon server.js")
+        $npm install mongoose (helps with database connection) and require at top
+        *get MONGO_URI from MongoDB Atlas server and set env var for it replacing <password> with 'MERNstack'
