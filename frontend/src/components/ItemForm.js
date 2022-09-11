@@ -1,8 +1,13 @@
 import { useState } from "react"
+//Add between the === to get page to update on added item
+import { useItemContext } from "../hooks/useItemContext"
+//===
 
 //To add an item to the warehouse
 const ItemForm = () => {
-
+    //===
+    const { dispatch } = useItemContext()
+    //===
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [quantity, setQuantity] = useState('')
@@ -35,6 +40,9 @@ const ItemForm = () => {
             setFragile('')
             setError(null)
             console.log('new item addded', json)
+            //===
+            dispatch({type: 'ADD_ITEM', payload: json})
+            //===
         }
     }
 

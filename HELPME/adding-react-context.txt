@@ -1,0 +1,13 @@
+provide many global states/components in app
+(MAKE CONTEXT TO MANAGE DATA STATE)
+
+1. Inside /frontend/src/, create /context dir & ItemContext.js inside
+2. Create ItemContext and export it to index.js
+3. Wrap <App> component with ItemContext.Provider
+4. add useReducer(func-name, initial-state-value=null) hook 
+5. make custom hook for each context you have
+6. Inside /frontend/src/, create /hooks dir & useItemContext.js
+7. Inside ItemContext.js, line 30 change from 'state' to '...state'
+8. Inside Home.js, remove useState() and setItem(json) func and add some stuff
+
+9. Need to update on added item, not just page refresh

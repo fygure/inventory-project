@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react'
+//import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useItemContext } from '../hooks/useItemContext'
 
 //components
 import ItemDetails from '../components/ItemDetails'
 import ItemForm from '../components/ItemForm'
 
 const Home = () => {
-    const [data, setData] = useState(null)
+    //commented out at step 8
+    //const [data, setData] = useState(null)
+    const {data, dispatch} = useItemContext()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -13,7 +17,9 @@ const Home = () => {
             const json = await response.json()
 
             if(response.ok) {
-                setData(json)
+                //useState from react, removed at step 8
+                //setData(json)
+                dispatch( {type: 'SET_ITEMS', payload: json} )
             }
         }
 
