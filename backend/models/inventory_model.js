@@ -18,7 +18,7 @@ const inventorySchema = new Schema ( {
         required: true
     },
     fragile: {
-        type: Boolean,
+        type: String,
         required: false
     }
 }, {timestamps: true})

@@ -6,6 +6,7 @@ const ItemDetails = ({ data }) => {
             <h3>{data.name}</h3>
             <p><strong>Price per Unit (USD): </strong> {data.price} </p>
             <p><strong>Quantity: </strong> {data.quantity} </p>
+            <p><strong>Fragile: </strong> {data.fragile} </p>
             <p>{data.createdAt}</p>
         </div>
         

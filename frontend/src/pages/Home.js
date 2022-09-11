@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 //components
 import ItemDetails from '../components/ItemDetails'
+import ItemForm from '../components/ItemForm'
 
 const Home = () => {
     const [data, setData] = useState(null)
@@ -28,6 +29,7 @@ const Home = () => {
                     <ItemDetails key={data._id} data={data} />
                 ))}
             </div>
+            <ItemForm />
         </div>
     )
 }

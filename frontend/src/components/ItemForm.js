@@ -7,6 +7,7 @@ const ItemForm = () => {
     const [price, setPrice] = useState('')
     const [quantity, setQuantity] = useState('')
     const [fragile, setFragile] = useState('')
+    const [error, setError] = useState(null)
 
 
     const handleSubmit = async (e) => {
@@ -15,12 +16,30 @@ const ItemForm = () => {
 
         const item = {name, price, quantity, fragile} 
 
-        const response = await fetch('')
+        const response = await fetch('/api/inventory', {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
 
+        if (!response.ok) {
+            setError(json.error)
+        }
+        if (response.ok) {
+            setName('')
+            setPrice('')
+            setQuantity('')
+            setFragile('')
+            setError(null)
+            console.log('new item addded', json)
+        }
     }
 
     return (
-        <form className="create", onSubmit={handleSubmit}>
+        <form className="create" onSubmit={handleSubmit}>
             <h2>Add a New Item</h2>
 
             <label>Item Name:</label>
@@ -46,12 +65,16 @@ const ItemForm = () => {
 
             <label>Fragile:</label>
             <input 
-                type="boolean"
+                type="text"
                 onChange={(e) => setFragile(e.target.value)}
                 value={fragile}
             />
 
+            <button>Add Item</button>
+            {error && <div className="error">{error}</div>}
         </form>
         
     )
 }
+
+export default ItemForm
