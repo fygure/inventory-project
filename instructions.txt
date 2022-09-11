@@ -1,0 +1,18 @@
+create react app
+1. $npx create-react-app frontend
+2. $cd frontend
+3. in /src keep App.js, index.css, index.js
+4. in frontend dir : $npm install react-router-dom
+5. in App.js do few things 
+	- import { BrowserRouter, Routes, Route } from 'react-router-dom'
+6. <Route (need path and element) />
+7. for element: make dir pages and Home.js (need blank react component for home page)
+8. fill element ={..} in App.js
+9. $npm start
+10. mkdir components and start navbar - import { Link } from 'react-dom-router'
+11. add navbar in app
+12. do some css on the index
+13. put data to the home page - ( useEffect() in Home.js )
+14. option1. install cors for cross origin request sharing
+    option2. add proxy field to package.json file to address of the node server
+	- remove fetch response previous local path
