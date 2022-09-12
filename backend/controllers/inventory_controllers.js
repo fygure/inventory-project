@@ -33,8 +33,26 @@ const getAllInventory = async (req, res) => {
 }
 //=========================================================================//
 const addItem = async (req, res) => {
-
     const {name, price, quantity, fragile} = req.body
+
+    //create better error handling
+    let emptyFields = []
+
+    if(!name) {
+        emptyFields.push('name')
+    }
+    if(!price) {
+        emptyFields.push('price')
+    }
+    if(!quantity) {
+        emptyFields.push('quantity')
+    }
+
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+        //go to frontend and handle this differently
+    }
+
 
     //add doc to db
     try {

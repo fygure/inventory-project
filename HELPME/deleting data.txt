@@ -1,0 +1,1 @@
+in details components of frontend, add span for delete button.
