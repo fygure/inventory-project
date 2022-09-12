@@ -14,6 +14,9 @@ const ItemForm = () => {
     const [fragile, setFragile] = useState('')
     const [error, setError] = useState(null)
 
+    //better error handling
+    const [emptyFields, setEmptyFields] = useState([])
+
 
     const handleSubmit = async (e) => {
         //stop page refresh on submit
@@ -32,6 +35,9 @@ const ItemForm = () => {
 
         if (!response.ok) {
             setError(json.error)
+            //better error handling
+            setEmptyFields(json.emptyFields)
+
         }
         if (response.ok) {
             setName('')
@@ -39,6 +45,8 @@ const ItemForm = () => {
             setQuantity('')
             setFragile('')
             setError(null)
+            //hide backend errors 
+            setEmptyFields([])
             console.log('new item addded', json)
             //===
             dispatch({type: 'ADD_ITEM', payload: json})
@@ -55,6 +63,7 @@ const ItemForm = () => {
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                className={emptyFields.includes('name') ? 'error': ''}
             />
 
             <label>Price per Unit (USD):</label>
@@ -62,6 +71,7 @@ const ItemForm = () => {
                 type="number"
                 onChange={(e) => setPrice(e.target.value)}
                 value={price}
+                className={emptyFields.includes('price') ? 'error': ''}
             />
 
             <label>Quantity:</label>
@@ -69,6 +79,7 @@ const ItemForm = () => {
                 type="number"
                 onChange={(e) => setQuantity(e.target.value)}
                 value={quantity}
+                className={emptyFields.includes('quantity') ? 'error': ''}
             />
 
             <label>Fragile:</label>

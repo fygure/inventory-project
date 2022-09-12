@@ -50,7 +50,7 @@ const addItem = async (req, res) => {
 
     if (emptyFields.length > 0) {
         return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
-        //go to frontend and handle this differently
+        //go to frontend and handle this differently (in components -> form)
     }
 
 
