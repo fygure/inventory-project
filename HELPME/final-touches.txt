@@ -1,0 +1,3 @@
+$npm install date-fns (in frontend dir)
+import a function from the library: formatDistanceToNow
+in details component

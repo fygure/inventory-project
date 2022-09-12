@@ -25,7 +25,7 @@ const Home = () => {
 
         fetchData()
 
-    }, []) //dependency array, fires once
+    }, [dispatch]) //dependency array, fires once
 
 
     return (

@@ -1,6 +1,9 @@
 import { itemReducer } from "../context/ItemContext"
 import { useItemContext } from "../hooks/useItemContext"
 
+//date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 //encapsulation
 const ItemDetails = ({ data }) => {
     const  {dispatch} = useItemContext()
@@ -22,8 +25,8 @@ const ItemDetails = ({ data }) => {
             <p><strong>Price per Unit (USD): </strong> {data.price} </p>
             <p><strong>Quantity: </strong> {data.quantity} </p>
             <p><strong>Fragile: </strong> {data.fragile} </p>
-            <p>{data.createdAt}</p>
-            <span onClick={handleClick}>delete</span>
+            <p>{formatDistanceToNow(new Date(data.createdAt), { addSuffix: true })}</p>
+            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>
         
     )
