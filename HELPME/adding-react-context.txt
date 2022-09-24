@@ -11,3 +11,6 @@ provide many global states/components in app
 8. Inside Home.js, remove useState() and setItem(json) func and add some stuff
 
 9. Need to update on added item, not just page refresh
+
+
+hello
